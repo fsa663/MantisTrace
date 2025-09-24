@@ -1,11 +1,13 @@
-# RayTracing1
+# MantisTrace
 
-MATLAB Ray Tracing Code:
+Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new features and a clear roadmap.
 
-<b>Main Features:</b>
-* 3D ray tracing and display
-* Supports thick lenses and simulates spherical aberrations 
-* Can simulate off-axis components
+<b>Current Features:</b>
+* 3D ray tracing and display (vectorized, efficient plotting)
+* Thick lenses with support for **aspherical surfaces** and spherical aberrations
+* Off-axis components and ray bundles
+* Improved 3D visualization with clearer surfaces and bundles
+* Simple example scripts
 <br>
 
 
@@ -17,9 +19,11 @@ MATLAB Ray Tracing Code:
 
 
 The code currently does not support the following:
-* polarization
-* chromatic aberrations
-* Interference
+## 🚧 Gaps (Not Yet Supported)
+- Polarization effects  
+- Chromatic aberrations & dispersion  
+- Interference / diffraction  
+- Lens/material libraries
 <br>
 
 <b>Code Preview:</b>

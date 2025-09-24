@@ -11,7 +11,7 @@ Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new fea
 * Simple example scripts
 <br>
 
-The code has been tested on Octave 10.2. MATLAB friendly version (soon)
+The code has been tested on Octave 5.2 and 10.2. It is theoretically compatible with MATLAB R2017+.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/49459541/95596533-2dfdb900-0a56-11eb-8c9b-fac2d2208e8e.PNG" width="350" title="3D Ray Tracing">
@@ -29,7 +29,6 @@ The code has been tested on Octave 10.2. MATLAB friendly version (soon)
 
 ## 🛠 Roadmap
 - Free sensor placement (not limited to axis-aligned planes)
-- MATLAB-friendly packaging for easier use
 - Chromatic aberration simulation (multi-wavelength rays and spot diagrams)
 - Mini material library
 - GUI v0.1 (longitudinal layout with optional 3D pop-out)

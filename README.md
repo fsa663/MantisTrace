@@ -1,4 +1,5 @@
 # MantisTrace
+<img width="150" height="150" alt="MantisTrace" src="https://github.com/user-attachments/assets/ac49af58-028d-4a14-b050-560f0a50c671" />
 
 Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new features and a clear roadmap.
 

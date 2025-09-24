@@ -38,7 +38,7 @@ function [ray,yin0]=generateRaysFromDistance(csource,En,conditions,numrays,colra
 
     ang1=linspace(minth,maxth,numrays);
     ang2=linspace(minph,maxph,numrays);
-    center1stElement=[mean(cc3dx) mean(cc3dy) mean(cc3dz)]; 
+    center1stElement=[mean(cc3dx) mean(cc3dy) mean(cc3dz)];
     vr=csource-center1stElement;
     r=sqrt(vr*vr');
     raypwr=B*((maxth-minth)*(maxph-minph))*(1/numrays^2)*exp(-r*1e-6*coeff);
@@ -53,10 +53,11 @@ function [ray,yin0]=generateRaysFromDistance(csource,En,conditions,numrays,colra
 
             alpha=(xmin-csource(1))/FT3(1);
             P0=csource+alpha*FT3;
-            ray(end+1,:)=[P0 FT3  raypwr 0     colray    1     i   j];
-            %                            (1-3) (4-6)   (7)    (8)   (9)  (10)   (11)  (12)
+            ray(end+1,:)=[P0 FT3  raypwr 0     colray    1     i   j        0];
+            %                (1-3) (4-6)   (7)    (8)   (9)  (10)   (11)  (12)    (13)
             % 1-3: Source, 4-6: unit vector of the ray
             %7:power, 8:pathlength,9:empty,10:reflection order ,11=i, 12=j
+            %13 element id origin of the ray, 0=source
         end
     end
 

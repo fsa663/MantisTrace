@@ -11,7 +11,7 @@ Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new fea
 * Simple example scripts
 <br>
 
-The code has been tested on Octave.
+The code has been tested on Octave 10.2. MATLAB friendly version (soon)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/49459541/95596533-2dfdb900-0a56-11eb-8c9b-fac2d2208e8e.PNG" width="350" title="3D Ray Tracing">

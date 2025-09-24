@@ -37,6 +37,7 @@ The code has been tested on Octave 10.2. MATLAB friendly version (soon)
 <b>Code Preview:</b>
 
 In designs folder: You define the scene file (optical components and Sensor) 
+
 In Main.m: You define the ray source and the computation parameters
 
 

@@ -113,7 +113,7 @@ if rtplot
 end
 
 
-raySens=raySensPlane=[];
+raySens=[];raySensPlane=[];
 [a1,~]=size(raycmpM);
 %Collect the completed rays falling on the sensor plane (not necessaily the sensor)
 for j=1:a1
@@ -173,7 +173,7 @@ end
 numpixels=ceil(((SensorAverageRadius)+dy0)/pixelSize)*2+1;
 mid=round(numpixels/2-1);
 xt=((1:numpixels)-mid)*pixelSize;
-IM=IMdots=bx=zeros(numpixels,numpixels);
+IM=zeros(numpixels,numpixels);IMdots=IM;bx=IM;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [a1,~]=size(raySens);
 for j=1:a1

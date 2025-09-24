@@ -1,6 +1,6 @@
 function [E]=initializeSurroundingBox(E,SensorXDisplacementFromLastElement)
 
-k=size(E)(2);
+[~,k] = size(E);
 apertures=[];
 for j=1:k
     apertures=[apertures;E(j).aperture];

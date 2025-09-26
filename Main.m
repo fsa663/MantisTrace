@@ -5,11 +5,11 @@ pth='designs/test1_myTelescope122024';
 run([pth '.m']);
 
 %Task='compute spot';
-%Task='find focus';
-Task='quick';
+Task='find focus';
+%Task='quick';
 
 if strcmpi(Task,'find focus'),
-numrays=20; %number of rays per axis
+numrays=10; %number of rays per axis
 resR=10; % factor of interpolation
 rtplot=1; %2D raytracing plot: For fast ray tracing choose numrays<=10
 spplot=0;%spot plot: For accurate spot shape simulation choose numrays>30
@@ -29,23 +29,23 @@ plot3dr=0;%3D raytracing plot, but very slow
 end
 
 
-[E]=initializeSurroundingBox(E,SensorXDisplacementFromLastElement);
-
+[E,i_SensPlane]=initializeSurroundingBox(E,Sensor.lastdistance);
 [E]=preprocessElements(E);
+
 
 conditions.B=1;% Total optical power of the target in W (Assumedn to be totally diffusive)
 conditions.coeff=0.1;%Atmospheric Attenuation Coeffecient per km
 R0_in_m=1000;%3.3*2.54*1e-2;% Range from target to first lens in meters
 
-w=6*pi/180;%Horizontal: += ray is going right
+w=3*pi/180;%Horizontal: += ray is going right
 w2=0*pi/180;%vertical: +=ray is going up
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+i_outermost=7;
 R0=R0_in_m*1000;%convert to mm
 %[x y z] coordinates of the source
 csource=-R0*[sin(pi/2-w2)*cos(w) sin(pi/2-w2)*sin(w) cos(pi/2-w2)];
-[ray,yin0]=generateRaysFromDistance(csource ,E(7),conditions,numrays,1);
+[ray,yin0]=generateRaysFromDistance(csource ,E(i_outermost),conditions,numrays,1);
 
 clrz='rgbykmc';
 
@@ -98,7 +98,7 @@ if rtplot
         end
 %}
 % end debug
-    XposofSensor=E(4).center(1);
+    XposofSensor=E(i_SensPlane).center(1);
     if strcmpi(Sensor.Type,'circular')
         plot([XposofSensor XposofSensor],[-Sensor.radius Sensor.radius],'k')
     elseif strcmpi(Sensor.Type,'rectangular')
@@ -117,7 +117,7 @@ raySens=[];raySensPlane=[];
 [a1,~]=size(raycmpM);
 %Collect the completed rays falling on the sensor plane (not necessaily the sensor)
 for j=1:a1
-    if (raycmpM(j,14)==E(4).center(1))
+    if (raycmpM(j,14)==E(i_SensPlane).center(1))
           raySensPlane(end+1,:)=raycmpM(j,:);
     end
 end
@@ -128,12 +128,13 @@ if strcmpi(Task,'find focus')
          CLC
          %scatter3(Points(:,1),Points(:,2),Points(:,3),'b');
          scatter3(Pc(1),Pc(2),Pc(3),'+b');
-         scatter3(PAcircle(:,1),PAcircle(:,2),PAcircle(:,3),'b')
+         scatter3(PAcircle(:,1),PAcircle(:,2),PAcircle(:,3),'b');
+		 nn0=num2str(round(time));
+		 hold off
+		 a=strcat('images\',nn0,'_',num2str(R0_in_m),'m_',num2str(floor(w*180/pi)),'_',num2str(floor(w2*180/pi)),'.png');
+		 saveas(gcf,a);
 end
-    nn0=num2str(round(time));
-    hold off
-    a=strcat('images\',nn0,'_',num2str(R0_in_m),'m_',num2str(floor(w*180/pi)),'_',num2str(floor(w2*180/pi)),'.png');
-    saveas(gcf,a);
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 [raySensPlaneInterp]=interpolateRays(raySensPlane,numrays,resR);

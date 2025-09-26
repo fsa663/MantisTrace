@@ -2,13 +2,13 @@ classdef SceneAPI
     % Scene Builder for optical systems
     % Example:
     %   S = SceneAPI();
-	%S.addSurface('sphericalSurface', ...
+	  %  S.addSurface('sphericalSurface', ...
     %	'center',[16 0 0],  'axis',[-1 0 0], 'radius',250, 'aperture',125, ...
     %	'indexcenter',1.50, 'indexout',1.00, 'autoStop',true);
     %   S.addSensor('rectangular','size',[10 12],'distance',50);
     %   [E,Sensor] = S.build();
-	
-	
+
+
     %   S.addLens('planoConvex','diameter',25,'f',50,'material','BK7');
     %   S.addSpacer(5);
     properties
@@ -184,11 +184,11 @@ classdef SceneAPI
         %% --- Export ---
         function [E,Sensor] = build(obj)
             E0 = obj.Elements;
-			
+
 			%pad with 6 empty surfaces, which will be populated later (stupid, i know!.. to match old structure)
 			[~,k] = size(E0);
 			E(6+1:6+k)=E0;
-			
+
             Sensor = obj.Sensor;
         end
     end

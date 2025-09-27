@@ -1,6 +1,7 @@
 # MantisTrace
+<p align="center">
 <img width="150" height="150" alt="MantisTrace" src="https://github.com/user-attachments/assets/ac49af58-028d-4a14-b050-560f0a50c671" />
-
+</p>
 Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new features and a clear roadmap.
 
 <b>Current Features:</b>
@@ -14,12 +15,15 @@ Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new fea
 * Simple example scripts
 <br>
 
+
 The code has been tested on Octave 5.2 and 10.2. It is theoretically compatible with MATLAB R2017+.
+I have started it back in 2020. I am relaunching it now, because I believe it is based on solid algorthmic foundation.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/49459541/95596533-2dfdb900-0a56-11eb-8c9b-fac2d2208e8e.PNG" width="350" title="3D Ray Tracing">
-  <img src="https://user-images.githubusercontent.com/49459541/95596560-3524c700-0a56-11eb-9576-c322b56f469a.PNG" width="350" title="2D Ray Tracing">
-  <img src="https://user-images.githubusercontent.com/49459541/95596548-3229d680-0a56-11eb-94b2-8dfd42ab4519.PNG" width="350" title="Spot Plotting">
+<img width="350"  alt="2D_Raytrace" src="https://github.com/user-attachments/assets/b72a80c4-21cf-418c-967d-1a8a43c8a53b" />
+<img width="350"  alt="3D_raytrace" src="https://github.com/user-attachments/assets/65fcbca5-5c73-49d0-ba2e-a4057625480f" />
+<img width="350"  alt="spot_plot" src="https://github.com/user-attachments/assets/4ea5eb81-4abc-41c3-ae41-6d6b567d6044" />
+
 </p>
 
 

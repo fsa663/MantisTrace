@@ -217,9 +217,39 @@ if strcmp(E(i).type,'Aspheric')
         cnd=((Pa1-E(i).center(1)).^2+(Pa2-E(i).center(2)).^2+(Pa3-E(i).center(3)).^2)>(A/2)^2;
         cnd=0*cnd;
         E(i).dnp=cnd;
-
     end
 
+    if strcmp(E(i).type,'circularAperture')
+        E(i).axis=E(i).axis./sqrt(E(i).axis*E(i).axis');
+        A=E(i).aperture;
+        ax=E(i).axis;
+        f=[ax(2) -ax(1) 0];
+        cnt=1;
+        for ti=-10:10
+            E(i).cc(cnt,:)=E(i).center+ti*f/10*E(i).aperture*0.5;cnt=cnt+1;
+        end
+        vecA=[1;1;1];vecA=vecA-(ax(:)'*vecA)*ax(:);vecA=vecA/vecnorm(vecA);
+        ang1=0:20:360;
+        fa=linspace(0,A/2,5);%fa(end+1)=fa(end)+1;fa(end+1)=fa(end)+1;
+        for ti=1:length(ang1)
+              [vecG]=rotateVectorAroundVector(vecA,E(i).axis(:),ang1(ti));
+              %figure(320); hold on; quiver3(0,0,0,vecG(1),vecG(2),vecG(3)); axis equal
+              for tj=1:length(fa)
+                    Pa1(ti,tj)=E(i).center(1)+vecG(1)*fa(tj);
+                    Pa2(ti,tj)=E(i).center(2)+vecG(2)*fa(tj);
+                    Pa3(ti,tj)=E(i).center(3)+vecG(3)*fa(tj);
+               end
+        end
+
+        E(i).cc3d(:,:,1)=Pa1;
+        E(i).cc3d(:,:,2)=Pa2;
+        E(i).cc3d(:,:,3)=Pa3;
+        cnd=((Pa1-E(i).center(1)).^2+(Pa2-E(i).center(2)).^2+(Pa3-E(i).center(3)).^2)>(A/2)^2;
+        cnd=0*cnd;
+        E(i).dnp=cnd;
+    end
+	
+	
     if (length(E(i).indexout)==0);E(i).indexout=1;end;
     if (length(E(i).indexcenter)==0);E(i).indexcenter=1;end;
     if length(E(i).isBoundary)==0;E(i).isBoundary=0;end
@@ -231,7 +261,7 @@ if strcmp(E(i).type,'Aspheric')
           E(i_New).center=E(i).center;  E(i_New).axis=[1 0 0];
           E(i_New).aperture=E(i).aperture;
           E(i_New).aperture=E(i).aperture;
-          E(i_New).indexout=1;E(i_New).indexcenter=1; % does not necessarily have to be vacuum, as the ray will be killed anyways
+          E(i_New).indexout=1;E(i_New).indexcenter=1; % does not necessarily have to be vacuum, but the ray will be killed anyways
     end
     end
 

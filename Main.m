@@ -1,6 +1,6 @@
 clear all;clc; close all
 
-pth='designs/test1_myTelescope122024';
+pth='designs/example2B';
 
 run([pth '.m']);
 

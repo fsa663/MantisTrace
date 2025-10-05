@@ -35,6 +35,9 @@ I have started it back in 2020. I am relaunching it now, because I believe it is
 <br>
 
 ## 🛠 Roadmap
+- Documentation
+- Higher Level Api (lenses instead of surfaces)
+- Popular Examples
 - Free sensor placement (not limited to axis-aligned planes)
 - GUI v0.1 (longitudinal layout with optional 3D pop-out)
 - Improved lens visualization in 3D and 2D

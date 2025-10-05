@@ -2,7 +2,7 @@ clear all;clc; close all
 
 pth='designs/example1N2';
 
-run([pth '.m']);
+run([pth '.m']);addpath('src');
 
 %Task='compute spot';
 %Task='find focus';

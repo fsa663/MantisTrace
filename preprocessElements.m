@@ -7,6 +7,7 @@ for i=1:n
 
     if strcmp(E(i).type,'sphericalSurface')
         R=E(i).radius;
+		if R<0, R=-R; E(i).axis=-E(i).axis; end %if a negative radius is specified, reverse the signs of the radius and axis to preserve uniformity
         A=E(i).aperture;
         bm=sqrt(R^2-(A/2)^2);
 
@@ -71,6 +72,8 @@ for i=1:n
 
 if strcmp(E(i).type,'Aspheric')
         R=E(i).radius;
+		if R<0, R=-R; E(i).axis=-E(i).axis; end %if a negative radius is specified, reverse the signs of the radius and axis to preserve uniformity
+
         A=E(i).aperture;C=1/R;
         K=E(i).asphericParam(1);
         s0=E(i).RSignConvention;

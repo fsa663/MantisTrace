@@ -1,4 +1,5 @@
-function []=Display3dLayout2(raycmpM,E,drawelements)
+function []=Display3dLayout2(raycmpM,E,drawelements,rgb,lineStyle)
+	if nargin <4, rgb='r'; end 
     figure(109);axis equal;
     [~,num4]=size(E);
     if drawelements
@@ -23,7 +24,7 @@ function []=Display3dLayout2(raycmpM,E,drawelements)
         figure(109);hold on;
         raycmp=raycmpM(i,:);
         crr=clrz(mod(i,6)+1);
-        plot3(raycmp([1 14]),raycmp([2 15]),raycmp([3 16]),'r','linewidth',5*raycmp(7));
+        plot3(raycmp([1 14]),raycmp([2 15]),raycmp([3 16]),'color',rgb,'linewidth',5*raycmp(7));
     end
     xlabel('x'); ylabel('y');zlabel('z');
 end %end function

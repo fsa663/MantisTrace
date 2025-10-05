@@ -9,6 +9,8 @@ Open-source ray tracing code in MATLAB/Octave. It is now relaunched with new fea
 * 3D ray tracing and display (vectorized, efficient plotting)
 * Thick lenses with support for **aspherical surfaces** and spherical aberrations
 * Off-axis components and ray bundles
+* **Chromatic** Aberrations and Dispersion (beta)
+* Mini-Material Library
 * Improved 3D visualization with clearer surfaces and bundles
 * Back Focal Length and Circle of Least Confusion calculation
 * No toolboxes or non-core MATLAB/Octave packages required
@@ -29,15 +31,11 @@ I have started it back in 2020. I am relaunching it now, because I believe it is
 
 ## 🚧 Gaps (Not Yet Supported)
 - Polarization effects  
-- Chromatic aberrations & dispersion  
 - Interference / diffraction  
-- Lens/material libraries
 <br>
 
 ## 🛠 Roadmap
 - Free sensor placement (not limited to axis-aligned planes)
-- Chromatic aberration simulation (multi-wavelength rays and spot diagrams)
-- Mini material library
 - GUI v0.1 (longitudinal layout with optional 3D pop-out)
 - Improved lens visualization in 3D and 2D
 
